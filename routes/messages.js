@@ -2,7 +2,7 @@
 
 let seqLog = require("../lib/SEQLogger");
 /*
- json expected
+json expected
 
 	{
 	"apikey": "NFn3QVPYlyOkOhAGydzQ",
@@ -11,7 +11,8 @@ let seqLog = require("../lib/SEQLogger");
 	"machine": "PB039EV5",
 	"user": "U11231",
 	"os": "Windows",
-	"browser": "Firefox"
+	"browser": "Firefox",
+	"other": ""
 	}
 */
 exports.information = function(req, res) {
