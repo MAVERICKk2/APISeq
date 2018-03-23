@@ -1,6 +1,6 @@
 "use strict";
 
-let seqLog = require("../lib/SEQLogger");
+let logging = require("../lib/SEQLogger");
 /*
 json expected
 
@@ -15,36 +15,58 @@ json expected
 	"other": ""
 	}
 */
+exports.getInformation = function(req, res) {
+	res.redirect('/');
+};
+
 exports.information = function(req, res) {
+	let message = '';
+
 	if (req.body.apikey === null || req.body.apikey === undefined || req.body.apikey === '') {
-		res.status(400);
-		//res.send("Provide a valid application Key");
-		res.json({"response": "Provide a valid application Key"});
+		res.status(400).json({"response": "Provide a valid application Key"});
 	} else{
-		seqLog.informationLog(req);
-		res.status(200);
-		res.json({"response": "Your information message was sent"});
+		logging.informationLog(req, function(err, response){
+			if (err !== '') {
+				res.status(500).json({"response": "SEQ Server is not available!"});
+			} else if (response !== '') {
+				res.status(200).json({"response": "Your information message was sent"});
+			}
+		});
 	}
+};
+
+exports.getWarning = function(req, res) {
+	res.redirect('/');
 };
 
 exports.warning = function(req, res) {
 	if (req.body.apikey === null || req.body.apikey === undefined || req.body.apikey === '') {
-		res.status(400);
-		res.json({"response": "Provide a valid application Key"});
+		res.status(400).json({"response": "Provide a valid application Key"});
 	} else {
-		seqLog.warningLog(req);
-		res.status(200);
-		res.json({"response": "Your information message was sent"});
+		logging.warningLog(req, function(err, response) {
+			if (err !== '') {
+				res.status(500).json({"response": "SEQ Server is not available!"});
+			} else if (response !== '') {
+				res.status(200).json({"response": "Your warning message was sent"});
+			}
+		});
 	}
+};
+
+exports.getError = function(req, res) {
+	res.redirect('/');
 };
 
 exports.error = function(req, res) {
 	if (req.body.apikey === null || req.body.apikey === undefined || req.body.apikey === '') {
-		res.status(400);
-		res.json({"response": "Provide a valid application Key"});
+		res.status(400).json({"response": "Provide a valid application Key"});
 	} else {
-		seqLog.errorLog(req);
-		res.status(200);
-		res.json({"response": "Your information message was sent"});
+		logging.errorLog(req, function(err, response) {
+			if (err !== '') {
+				res.status(500).json({"response": "SEQ Server is not available!"});
+			} else if (response !== '') {
+				res.status(200).json({"response": "Your warning message was sent"});
+			}
+		});
 	}
 };
