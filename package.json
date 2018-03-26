@@ -4,6 +4,7 @@
   "description": "API used to logging using SEQ",
   "main": "index.js",
   "scripts": {
+		"start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -12,7 +13,10 @@
   },
   "keywords": [
     "API",
-    "SEQ"
+		"SEQ",
+		"Log",
+		"Node",
+		"express"
   ],
   "author": "MAVERICK",
   "license": "GPL-3.0",
