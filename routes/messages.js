@@ -10,6 +10,7 @@ json expected
 	"ip": "127.0.0.0",
 	"machine": "PB039EV5",
 	"user": "U11231",
+	"location": "Panama",
 	"os": "Windows",
 	"browser": "Firefox",
 	"other": ""
