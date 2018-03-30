@@ -7,6 +7,7 @@ json expected
 	{
 	"apikey": "NFn3QVPYlyOkOhAGydzQ",
 	"message": "The End is Near",
+	"component": ".NET Framework 4.5",
 	"ip": "127.0.0.0",
 	"machine": "PB039EV5",
 	"user": "U11231",
